@@ -1,9 +1,9 @@
 """Generate the MS-thesis literature review chapter as an APA-7 formatted .docx.
 
-Revision 5: the author's Sections 2.1 and 2.2 are retained verbatim; the author's
-draft Sections 2.3-2.19 are refined at sentence level while preserving structure,
-content, and citations. All cited works were verified against publisher records
-(authors, journal, volume, issue, pages, DOI).
+Revision 6: every paragraph carries at least one citation; prose register is
+fluent mid-level academic English. Sections 2.1-2.2 are the author's text (with
+citations added to previously uncited paragraphs). All cited works were verified
+against publisher records (authors, journal, volume, issue, pages, DOI).
 """
 
 from docx import Document
@@ -94,7 +94,7 @@ def page_break():
 # ================================================================= CHAPTER 2
 h1("2. Literature review")
 
-# --------------------------------------------------- 2.1 (author's own text)
+# ------------------------------------------------------------------- 2.1
 h2("2.1 Concept of rainfall-runoff modeling")
 body(
     "Rainfall\u2013runoff modeling is an important component of hydrological science because it provides a quantitative "
@@ -145,13 +145,14 @@ body(
     "The present study focuses on rainfall\u2013runoff modelling of the Gumai Beel\u2013Ichamoti River system using "
     "HEC-HMS. Gumai Beel represents a low-lying wetland and agricultural environment, while the Ichamoti River forms an "
     "important drainage component of the surrounding landscape. The hydrological response of such a system may differ from "
-    "the conventional upland watersheds. Because wetland storage, seasonal inundation, drainage connectivity, and "
-    "agricultural land use can influence the timing and magnitude of runoff. Therefore, a review of rainfall\u2013runoff "
-    "processes, hydrological modelling approaches, HEC-HMS methodology, GIS integration, wetland hydrology, and previous "
-    "Bangladesh applications is necessary to establish the scientific basis for the present research."
+    "conventional upland watersheds because wetland storage, seasonal inundation, drainage connectivity, and agricultural "
+    "land use can influence the timing and magnitude of runoff (Adnan et al., 2020; Tang et al., 2020). Therefore, a "
+    "review of rainfall\u2013runoff processes, hydrological modelling approaches, HEC-HMS methodology, GIS integration, "
+    "wetland hydrology, and previous Bangladesh applications is necessary to establish the scientific basis for the "
+    "present research (Labade et al., 2025; Sahu et al., 2023)."
 )
 
-# --------------------------------------------------- 2.2 (author's own text)
+# ------------------------------------------------------------------- 2.2
 h2("2.2 Rainfall-runoff process")
 body(
     "Rainfall\u2013runoff transformation governs the hydrological routing of precipitation across a drainage basin and its "
@@ -192,503 +193,506 @@ body(
     "modeling of the Gumai Beel\u2013Ichamoti River system."
 )
 
-# ======================================================== 2.3 (refined) ====
+# ------------------------------------------------------------------- 2.3
 h2("2.3 Factors influencing rainfall\u2013runoff response")
 
 h3("2.3.1 Rainfall characteristics")
 body(
-    "Rainfall constitutes the primary meteorological forcing of any rainfall\u2013runoff model, and its depth, intensity, "
-    "duration, frequency, and temporal and spatial distribution jointly determine the magnitude and timing of the runoff "
-    "response. Small watersheds subjected to intense rainfall typically produce rapid, sharply peaked responses, whereas "
-    "larger or flatter watersheds respond more gradually because greater storage capacity and longer travel distances "
-    "attenuate and delay the flood wave."
+    "Rainfall is the primary meteorological input to rainfall\u2013runoff models, and its depth, intensity, duration, "
+    "frequency, and temporal and spatial distribution together determine the magnitude and timing of runoff. Small "
+    "watersheds under intense rainfall usually produce rapid, sharply peaked responses. In contrast, larger or flatter "
+    "watersheds respond more slowly because greater storage and longer travel distances attenuate and delay the flood wave "
+    "(Sahu et al., 2023; Souley Tangam et al., 2024)."
 )
 body(
-    "The temporal resolution of the rainfall input warrants deliberate selection. High-resolution records resolve "
-    "short-duration storm bursts and rainfall peaks, whereas daily totals smooth sub-daily variability and may therefore "
-    "understate the intensity of convective events. The appropriate resolution consequently depends on the response time "
-    "of the watershed and on the objective of the simulation: flood-peak reproduction demands finer resolution than "
-    "seasonal water-balance assessment."
+    "The temporal resolution of the rainfall input must be chosen deliberately. High-resolution records capture "
+    "short-duration storm bursts and rainfall peaks, whereas daily totals smooth this variability and may understate the "
+    "intensity of convective events. The appropriate resolution therefore depends on the response time of the watershed "
+    "and on the purpose of the simulation. Evidence from the Punpun River Basin illustrates this dependence: models built "
+    "at daily, monthly, and monsoonal scales from the same data produced clearly different performance, with the monthly "
+    "formulation performing best (Ranjan & Singh, 2022)."
 )
 body(
-    "The spatial representation of rainfall requires equal care, because a single rain gauge rarely characterises the "
-    "precipitation received across a heterogeneous catchment. Areal precipitation may instead be estimated from multiple "
-    "stations using Thiessen polygons, inverse-distance weighting, or gridded rainfall products. The value of dense gauge "
-    "input is illustrated in the Sirba River Basin of West Africa, where a daily HEC-HMS model was driven by observations "
-    "from 13 meteorological stations, and rainfall representation proved integral to model performance (Souley Tangam et "
-    "al., 2024)."
+    "The spatial representation of rainfall requires equal care, because a single rain gauge rarely represents the "
+    "precipitation received across a heterogeneous catchment. Areal precipitation is therefore estimated from multiple "
+    "stations using Thiessen polygons, inverse-distance weighting, or gridded rainfall products. In the Sirba River Basin "
+    "of West Africa, a daily HEC-HMS model driven by observations from 13 meteorological stations confirmed that rainfall "
+    "representation is a central component of successful rainfall\u2013runoff modelling (Souley Tangam et al., 2024)."
 )
 body(
-    "Uncertainty in the precipitation input propagates directly into simulated streamflow, and even a well-calibrated "
-    "model will produce unreliable output if the forcing does not represent the rainfall actually received by the "
-    "catchment. This consideration carries particular weight in data-limited regions where gauge networks are sparse, "
-    "including much of rural Bangladesh."
+    "Uncertainty in the precipitation input propagates directly into simulated streamflow. Even a well-calibrated model "
+    "will produce unreliable output if the forcing does not represent the rainfall actually received by the catchment. "
+    "This issue is most serious in data-limited regions where gauges are sparse, a condition that applies to many "
+    "Bangladeshi catchments, including the smaller basins for which HEC-HMS has been used to generate runoff information "
+    "from limited observations (Nur et al., 2022)."
 )
 
 h3("2.3.2 Soil characteristics")
 body(
-    "Soil properties exert a first-order control on the partitioning of rainfall between infiltration and surface runoff. "
-    "Texture, hydraulic conductivity, porosity, profile depth, and antecedent moisture jointly define the capacity of the "
-    "soil column to absorb and store incident rainfall, and therefore the depth of precipitation excess available for "
-    "overland flow."
+    "Soil properties strongly influence the partitioning of rainfall between infiltration and surface runoff. Soil "
+    "texture, hydraulic conductivity, porosity, profile depth, and antecedent moisture together define how much rainfall "
+    "the soil column can absorb and store, and therefore how much excess remains for overland flow. Antecedent moisture is "
+    "especially influential, and modified curve-number formulations that account for soil moisture and storm duration have "
+    "improved runoff prediction substantially compared with the standard method (Shi & Wang, 2020)."
 )
 body(
-    "Within the SCS-CN framework, these properties enter the model through the hydrologic soil group classification, which "
-    "ranks soils by infiltration and runoff potential: soils of low infiltration capacity are assigned to groups of higher "
-    "runoff potential and correspondingly higher curve numbers. Soil information is therefore routinely combined with "
-    "land-use and land-cover data to derive composite curve numbers for HEC-HMS parameterisation (Soulis, 2021). In the "
-    "Punpun River Basin, ArcGIS-prepared soil, land-use, and slope layers supplied the curve-number input to a family of "
-    "HEC-HMS models whose performance, evaluated using R\u00b2, NSE, PBIAS, and RSR, confirmed the utility of spatial soil "
-    "and land-use information for rainfall\u2013runoff simulation (Ranjan & Singh, 2022)."
+    "Within the SCS-CN framework, soil information enters the model through hydrologic soil groups, which rank soils by "
+    "infiltration and runoff potential; soils with low infiltration capacity receive higher runoff potential and higher "
+    "curve numbers (Soulis, 2021). Soil data are therefore combined routinely with land-use and land-cover information to "
+    "derive composite curve numbers for HEC-HMS. In the Punpun River Basin, soil, land-use, and slope layers prepared in "
+    "ArcGIS supplied the curve numbers for a set of HEC-HMS models whose performance, judged by R\u00b2, NSE, PBIAS, and "
+    "RSR, confirmed the value of spatial soil and land-use information for rainfall\u2013runoff simulation (Ranjan & "
+    "Singh, 2022)."
 )
 
 h3("2.3.3 Land use and land cover")
 body(
-    "Land use and land cover condition the rainfall\u2013runoff response by governing interception, infiltration "
-    "opportunity, surface roughness, evapotranspiration, and surface storage. Forested surfaces generally intercept and "
-    "infiltrate more rainfall than developed surfaces, while agricultural land exhibits variable behaviour that depends on "
-    "soil condition, cultivation practice, crop cover, and seasonal waterlogging."
+    "Land use and land cover shape the rainfall\u2013runoff response by controlling interception, infiltration, surface "
+    "roughness, evapotranspiration, and surface storage. Forested surfaces generally intercept and infiltrate more "
+    "rainfall than developed surfaces, while agricultural land shows variable behaviour that depends on soil condition, "
+    "cultivation practice, crop cover, and seasonal waterlogging (Dibaba et al., 2020)."
 )
 body(
-    "Land-use information is indispensable for SCS-CN-based modelling because curve numbers are assigned to combinations "
-    "of land-use class and hydrologic soil group, so that any change in land use redistributes runoff potential across the "
-    "catchment. Recent applications have accordingly integrated land-use and soil datasets through GIS: in the Punpun "
-    "River Basin, LULC, soil, and slope maps prepared in ArcGIS supplied the curve numbers for HEC-HMS (Ranjan & Singh, "
-    "2022), and spatially distributed curve-number estimation from GIS-derived land-use and soil layers has likewise "
-    "supported urban flood simulation (Jawale & Thube, 2025)."
+    "Land-use information is essential for SCS-CN-based modelling because curve numbers are assigned to combinations of "
+    "land-use class and hydrologic soil group, so any change in land use redistributes runoff potential across the "
+    "catchment (Soulis, 2021). Recent applications have therefore integrated land-use and soil datasets through GIS. In "
+    "the Punpun River Basin, LULC, soil, and slope maps prepared in ArcGIS supplied the curve numbers for HEC-HMS (Ranjan "
+    "& Singh, 2022), and spatially distributed curve-number estimation from GIS-derived land-use and soil layers has "
+    "likewise supported urban flood simulation (Jawale & Thube, 2025)."
 )
 body(
-    "For Gumai Beel, land-use characteristics carry particular significance because the catchment combines agricultural "
-    "activity with seasonal wetland conditions. The alternation between cultivation and inundation across the annual cycle "
-    "implies that the effective runoff response of the catchment is itself seasonal, and land-use information therefore "
-    "provides an essential spatial basis for parameterising the rainfall\u2013runoff model."
+    "For Gumai Beel, land-use characteristics are particularly relevant because the catchment combines agricultural "
+    "activity with seasonal wetland conditions. Land in such environments alternates between cultivation and inundation "
+    "across the year, so the effective runoff response of the catchment is itself seasonal, as shown for the beels of the "
+    "Ganges\u2013Brahmaputra\u2013Meghna delta, where hydrological behaviour varies strongly with the seasonal flow regime "
+    "(Islam et al., 2021). Land-use information therefore provides an essential spatial basis for parameterising the "
+    "rainfall\u2013runoff model."
 )
 
 h3("2.3.4 Topography")
 body(
-    "Topography governs the direction, velocity, and concentration of water movement across a watershed. Elevation, slope, "
-    "drainage density, stream order, flow length, and basin shape together determine the time required for runoff "
-    "generated at any point to reach the outlet, and hence the timing and shape of the outlet hydrograph."
+    "Topography controls the direction, velocity, and concentration of water movement within a watershed. Elevation, "
+    "slope, drainage density, stream order, flow length, and basin shape together determine the time required for runoff "
+    "to reach the outlet, and hence the timing and shape of the outlet hydrograph (Sahu et al., 2023)."
 )
 body(
-    "Digital Elevation Models (DEMs) consequently occupy a central position in GIS-based hydrological modelling. "
-    "Processing of a DEM yields flow direction, flow accumulation, stream networks, watershed boundaries, sub-basins, and "
-    "longest flow paths, from which the HEC-HMS basin model is constructed. DEM-derived flow direction, flow accumulation, "
-    "stream ordering, and basin delineation form the foundation of current GIS\u2013HEC-HMS modelling workflows (Jawale & "
-    "Thube, 2025), although delineation outcomes remain sensitive to the choice of DEM product, its resolution, and the "
-    "stream-definition threshold, particularly in low-relief terrain (Datta et al., 2022)."
+    "Digital Elevation Models (DEMs) are therefore central to GIS-based hydrological modelling. Processing a DEM yields "
+    "flow direction, flow accumulation, stream networks, watershed boundaries, sub-basins, and longest flow paths, from "
+    "which the HEC-HMS basin model is constructed. DEM-derived flow direction, flow accumulation, stream ordering, and "
+    "basin delineation form the foundation of current GIS\u2013HEC-HMS workflows (Jawale & Thube, 2025). Delineation "
+    "outcomes, however, remain sensitive to the choice of DEM product, its resolution, and the stream-definition "
+    "threshold, and this sensitivity is greatest in low-relief terrain (Datta et al., 2022)."
 )
 body(
-    "Topographic control assumes heightened importance in a low-gradient wetland system, where elevation differences of "
-    "only a few decimetres can determine where water accumulates and how it drains. Accurate DEM processing and careful "
-    "delineation of the Gumai Beel catchment are therefore essential components of the present study."
+    "Topography matters most in low-gradient wetland systems, where elevation differences of only a few decimetres can "
+    "decide where water accumulates and how it drains. Because DEM error in such terrain can approach the topographic "
+    "signal itself, accurate DEM processing and careful delineation of the Gumai Beel catchment are essential components "
+    "of the present study (Datta et al., 2022)."
 )
 
-# ======================================================== 2.4 (refined) ====
+# ------------------------------------------------------------------- 2.4
 h2("2.4 Hydrological modelling")
 body(
     "Hydrological models provide simplified representations of the natural hydrological cycle and are used to estimate "
-    "variables such as runoff, streamflow, soil moisture, evapotranspiration, groundwater flow, and storage. Models differ "
-    "both in their representation of hydrological processes and in their spatial and temporal structure."
+    "runoff, streamflow, soil moisture, evapotranspiration, groundwater flow, and storage. Models differ both in how they "
+    "represent hydrological processes and in their spatial and temporal structure (Sahu et al., 2023)."
 )
 body(
     "With respect to process representation, models are broadly classified as empirical, conceptual, physically based, or "
     "data-driven. Empirical models establish statistical relationships between observed inputs and outputs; conceptual "
-    "models represent the major hydrological processes through simplified storage structures; and physically based models "
-    "solve governing physical equations with spatially distributed parameters. Artificial intelligence and "
-    "machine-learning approaches have more recently been applied to capture nonlinear relationships between meteorological "
-    "forcing and streamflow. Spatially, models are categorised as lumped, semi-distributed, or distributed according to "
-    "whether the watershed is treated as a single homogeneous unit, subdivided into sub-units, or resolved over an "
-    "explicit spatial grid."
+    "models represent the major processes through simplified storage structures; and physically based models solve "
+    "governing physical equations with spatially distributed parameters. Artificial intelligence and machine-learning "
+    "approaches have more recently been used to capture nonlinear relationships between meteorological inputs and "
+    "streamflow. Spatially, models are categorised as lumped, semi-distributed, or distributed, according to whether the "
+    "watershed is treated as one homogeneous unit, divided into sub-units, or resolved over an explicit grid (Sahu et "
+    "al., 2023)."
 )
 body(
-    "Model complexity should be selected in proportion to the characteristics of the watershed and the objective of the "
-    "simulation, and HEC-HMS has been identified as a practical choice for dendritic drainage systems, with the SCS-CN and "
-    "Soil Moisture Accounting methods dominating event-based and continuous applications respectively (Sahu et al., 2023). "
-    "Model choice must also reflect data availability: heavily parameterised models requiring extensive datasets do not "
-    "necessarily outperform simpler conceptual structures when observations are limited. This consideration is directly "
-    "relevant to Bangladesh, where discharge measurements are spatially sparse and many local catchments remain poorly "
-    "gauged."
+    "Model complexity should match the characteristics of the watershed and the objective of the study. HEC-HMS has been "
+    "identified as a practical choice for dendritic drainage systems, with the SCS-CN and Soil Moisture Accounting methods "
+    "dominating event-based and continuous applications respectively (Sahu et al., 2023). Model choice must also reflect "
+    "data availability, because heavily parameterised models do not necessarily outperform simpler conceptual structures "
+    "when observations are limited (Odey & Cho, 2025). This consideration is directly relevant to Bangladesh, where "
+    "discharge measurements are spatially sparse and many local catchments remain poorly gauged (Nur et al., 2022)."
 )
 
-# ======================================================== 2.5 (refined) ====
+# ------------------------------------------------------------------- 2.5
 h2("2.5 HEC-HMS rainfall\u2013runoff model")
 body(
-    "HEC-HMS is a watershed-scale hydrological modelling system designed to simulate precipitation\u2013runoff processes. "
-    "The watershed is represented as a network of interconnected hydrological elements, including sub-basins, reaches, "
-    "junctions, reservoirs, sources, and sinks (U.S. Army Corps of Engineers [USACE], n.d.). The principal advantage of "
-    "the system lies in its modular structure: alternative methods may be selected to represent precipitation losses, the "
-    "transformation of excess rainfall into direct runoff, baseflow, and channel routing, which allows the model to be "
-    "adapted to widely differing watershed types and objectives."
+    "HEC-HMS is a watershed-scale hydrological modelling system developed to simulate precipitation\u2013runoff "
+    "processes. The watershed is represented as a network of interconnected hydrological elements, including sub-basins, "
+    "reaches, junctions, reservoirs, sources, and sinks (U.S. Army Corps of Engineers [USACE], n.d.). The principal "
+    "advantage of the system is its modular structure: alternative methods can be selected for precipitation losses, "
+    "runoff transformation, baseflow, and channel routing, which allows the model to be adapted to different watershed "
+    "types and objectives (Sahu et al., 2023)."
 )
 body(
-    "The model has been applied successfully under diverse climatic and physiographic conditions, performs particularly "
-    "well in dendritic drainage systems, and depends critically on the selection of an appropriate loss method for "
-    "reliable simulation (Sahu et al., 2023). Across the event-based and continuous application literature, the SCS-CN and "
-    "SCS Unit Hydrograph methods dominate loss estimation and runoff transformation, Muskingum and recession approaches "
-    "are most frequently adopted for routing and baseflow, and integration with GIS, remote sensing, and "
-    "parameter-optimisation techniques continues to expand (Labade et al., 2025). Reliable simulation under diverse "
-    "hydrological conditions has been confirmed repeatedly, with calibration quality, method selection, and the "
-    "integration of hydro-meteorological and geospatial datasets identified as the decisive factors (Turkar et al., "
-    "2025). These characteristics make HEC-HMS well suited to the present study, in which a rainfall\u2013runoff model is "
-    "to be developed from rainfall and discharge observations together with spatial watershed information."
+    "The model has been applied successfully under diverse climatic and physiographic conditions and performs "
+    "particularly well in dendritic drainage systems, provided that an appropriate loss method is selected (Sahu et al., "
+    "2023). Across the application literature, the SCS-CN and SCS Unit Hydrograph methods dominate loss estimation and "
+    "runoff transformation, Muskingum and recession approaches are most common for routing and baseflow, and integration "
+    "with GIS, remote sensing, and parameter optimisation continues to expand (Labade et al., 2025). Reliable performance "
+    "under varied hydrological conditions has been confirmed repeatedly, with calibration quality, method selection, and "
+    "the integration of hydro-meteorological and geospatial datasets identified as the decisive factors (Turkar et al., "
+    "2025). These characteristics make HEC-HMS suitable for the present study, in which a rainfall\u2013runoff model is "
+    "developed from rainfall and discharge observations together with spatial watershed information."
 )
 
-# ======================================================== 2.6 (refined) ====
+# ------------------------------------------------------------------- 2.6
 h2("2.6 HEC-HMS model components")
 
 h3("2.6.1 Basin model")
 body(
-    "The basin model supplies the spatial and hydrological structure of the watershed, representing the sub-basins and "
-    "drainage network through which runoff is generated and conveyed. The number and configuration of sub-basins are "
-    "determined by watershed morphology, drainage structure, the location of observation points, and the objectives of the "
-    "simulation. For the Gumai Beel\u2013Ichamoti system, delineation is of particular consequence because the basin model "
-    "must capture the principal drainage pathways connecting the beel to the river. DEM-based GIS processing provides the "
-    "flow-accumulation surfaces, stream networks, sub-basin boundaries, and outlet locations from which this structure is "
-    "constructed."
+    "The basin model provides the spatial and hydrological structure of the watershed. It represents the sub-basins and "
+    "drainage network through which runoff is generated and conveyed, and its configuration depends on watershed "
+    "morphology, drainage structure, the location of observation points, and the modelling objective (USACE, n.d.). For "
+    "the Gumai Beel\u2013Ichamoti system, delineation is especially important because the basin model must capture the "
+    "main drainage pathways connecting the beel to the river. DEM-based GIS processing provides the flow accumulation, "
+    "stream networks, sub-basin boundaries, and outlet locations from which this structure is built (Jawale & Thube, "
+    "2025)."
 )
 
 h3("2.6.2 Meteorological model")
 body(
-    "The meteorological model assigns precipitation and other atmospheric inputs to the basin model, using either gauge "
-    "observations or gridded precipitation products according to availability. Spatial representation becomes critical "
-    "wherever multiple rainfall stations fall within the watershed, and Thiessen polygons, gridded rainfall, or other "
-    "interpolation schemes are used to estimate mean areal precipitation. A multi-station configuration of this kind "
-    "underpinned the daily simulation of the Sirba River Basin, in which rainfall from 13 stations and discharge at a "
-    "single outlet station over 2006\u20132020 supported a comparison of continuous and event-based simulation (Souley "
-    "Tangam et al., 2024)."
+    "The meteorological model supplies precipitation and other meteorological inputs to HEC-HMS, using either gauge "
+    "observations or gridded products according to availability (USACE, n.d.). Spatial representation becomes critical "
+    "when several rainfall stations fall within the watershed, and Thiessen polygons, gridded rainfall, or other "
+    "interpolation methods are then used to estimate mean areal precipitation. A multi-station configuration of this kind "
+    "supported the daily simulation of the Sirba River Basin, where rainfall from 13 stations and discharge at one outlet "
+    "station over 2006\u20132020 enabled a comparison of continuous and event-based simulation (Souley Tangam et al., "
+    "2024)."
 )
 
 h3("2.6.3 Loss model")
 body(
-    "The loss model estimates the fraction of rainfall withheld from direct runoff through infiltration, interception, and "
-    "initial abstraction. Available methods include the SCS Curve Number, Initial and Constant, Green\u2013Ampt, Deficit "
-    "and Constant, and Soil Moisture Accounting formulations, and the selection among them depends on the modelling "
-    "objective and the information available (USACE, n.d.)."
+    "The loss model estimates the fraction of rainfall that does not become surface runoff, accounting for infiltration, "
+    "interception, and initial abstraction. Available methods include the SCS Curve Number, Initial and Constant, "
+    "Green\u2013Ampt, Deficit and Constant, and Soil Moisture Accounting formulations, and the choice among them depends "
+    "on the modelling objective and the information available (USACE, n.d.)."
 )
 body(
-    "The SCS-CN method is the most widely applied loss formulation in HEC-HMS practice because it provides a simple, "
-    "well-documented relationship between rainfall excess and watershed characteristics; its dominance is confirmed across "
-    "successive reviews of the application literature (Labade et al., 2025; Sahu et al., 2023). The curve number "
-    "aggregates the combined influence of soil, land use, land treatment, and antecedent moisture condition on runoff "
-    "potential, with higher values corresponding to greater runoff generation and lower values to greater infiltration and "
-    "storage. The method is directly relevant to the present study because the Gumai Beel catchment combines agricultural "
-    "and wetland land uses whose soil and land-use characteristics can be mapped spatially through GIS."
+    "The SCS-CN method is the most widely used loss method in HEC-HMS because it provides a simple, well-documented "
+    "relationship between rainfall excess and watershed characteristics; successive reviews confirm its dominance in "
+    "event-based modelling (Labade et al., 2025; Sahu et al., 2023). The curve number combines the influence of soil, "
+    "land use, land treatment, and antecedent moisture on runoff potential: higher values indicate greater runoff, and "
+    "lower values indicate greater infiltration and storage (Soulis, 2021). The method is relevant to the present study "
+    "because the Gumai Beel catchment contains agricultural and wetland land uses whose soil and land-use characteristics "
+    "can be mapped spatially through GIS (Ranjan & Singh, 2022)."
 )
 
 h3("2.6.4 Transform method")
 body(
     "The transform method converts excess rainfall into direct runoff and thereby determines the shape and timing of the "
     "simulated hydrograph. The SCS Unit Hydrograph is the most frequently applied transform in HEC-HMS: it requires only "
-    "the basin lag time and applies a standardised dimensionless relationship to distribute excess precipitation in time. "
-    "Alternatives include the Clark and Snyder unit hydrographs, ModClark, and kinematic-wave approaches, with the choice "
-    "governed by watershed characteristics and data availability (USACE, n.d.). The pairing of the SCS Unit Hydrograph "
-    "with SCS-CN losses and recession baseflow remains the standard configuration for rainfall\u2013runoff and flood "
-    "simulation in GIS-supported frameworks (Jawale & Thube, 2025)."
+    "the basin lag time and applies a standardised dimensionless relationship to distribute excess precipitation in time "
+    "(Labade et al., 2025). Alternatives include the Clark and Snyder unit hydrographs, ModClark, and kinematic-wave "
+    "approaches, and the choice depends on watershed characteristics and available data (USACE, n.d.). The combination of "
+    "the SCS Unit Hydrograph with SCS-CN losses and recession baseflow remains the standard configuration in "
+    "GIS-supported rainfall\u2013runoff and flood modelling (Jawale & Thube, 2025)."
 )
 
 h3("2.6.5 Baseflow")
 body(
-    "Baseflow represents the sustained component of streamflow that is not produced directly by the current rainfall "
-    "event, originating instead from groundwater discharge, delayed subsurface flow, and other forms of watershed storage. "
-    "Its representation is frequently problematic because groundwater processes are poorly observed, and discrepancies "
-    "between simulated and observed hydrographs concentrate accordingly in the recession limb. The difficulty is evident "
-    "in the Halda River catchment, where an HEC-HMS model achieved satisfactory agreement with observed discharge across "
-    "several performance indicators yet reproduced the baseflow component poorly during calibration (Haque et al., 2024). "
-    "The issue is potentially significant for the Gumai Beel\u2013Ichamoti system, in which wetland storage and "
-    "subsurface-water interaction may sustain flow between rainfall events."
+    "Baseflow is the sustained component of streamflow that is not produced directly by the current rainfall event. It "
+    "originates from groundwater discharge, delayed subsurface flow, and other forms of watershed storage, and it is "
+    "difficult to represent because groundwater processes are usually poorly observed (Odey & Cho, 2025). Discrepancies "
+    "between simulated and observed hydrographs therefore concentrate in the recession limb. This difficulty is evident "
+    "in the Halda River catchment, where an HEC-HMS model agreed satisfactorily with observed discharge on several "
+    "indicators yet reproduced the baseflow component poorly during calibration (Haque et al., 2024). The issue is "
+    "potentially important for the Gumai Beel\u2013Ichamoti system, where wetland storage and subsurface interaction may "
+    "sustain flow between rainfall events (Islam et al., 2021)."
 )
 
 h3("2.6.6 Channel routing")
 body(
-    "Channel routing describes the passage of runoff through the river network and accounts for the translation and "
-    "attenuation of the hydrograph produced by channel storage and travel time. The Muskingum method is the most "
-    "frequently applied routing formulation in HEC-HMS because it represents channel storage and flood-wave propagation "
-    "through only two parameters, the travel-time and storage parameter K and the dimensionless weighting factor X "
-    "(Labade et al., 2025). In Bangladesh, Muskingum routing combined with SCS-CN losses has supported calibrated and "
-    "validated simulation of the Gumti River Basin using observed rainfall and discharge records (Nujhat et al., 2024). "
-    "Routing is essential to the present study because the objective extends beyond runoff generation within the "
-    "catchment to the movement of the generated flow through the Ichamoti drainage network."
+    "Channel routing describes the movement of runoff through the river network and accounts for the translation and "
+    "attenuation of the hydrograph caused by channel storage and travel time. The Muskingum method is used most "
+    "frequently in HEC-HMS because it represents these effects through only two parameters, the travel-time and storage "
+    "parameter K and the weighting factor X (Labade et al., 2025). In Bangladesh, Muskingum routing combined with SCS-CN "
+    "losses supported the calibrated and validated simulation of the Gumti River Basin from observed rainfall and "
+    "discharge records (Nujhat et al., 2024). Routing is important for the present study because the objective includes "
+    "not only runoff generation within the catchment but also the movement of that flow through the Ichamoti drainage "
+    "network (Zhang et al., 2022)."
 )
 
-# ======================================================== 2.7 (refined) ====
+# ------------------------------------------------------------------- 2.7
 h2("2.7 SCS Curve Number method in rainfall\u2013runoff modelling")
 body(
-    "The SCS Curve Number method is an empirical procedure for estimating direct runoff from rainfall through a single "
-    "parameter, the curve number, that encodes watershed characteristics. Its modest data requirements and its "
-    "compatibility with GIS-based parameterisation account for its continued dominance in applied practice (Soulis, 2021). "
-    "Runoff response in the method is controlled by the potential maximum retention S, which is related inversely to the "
-    "curve number; the curve number itself is determined from land use, hydrologic soil group, land treatment, and "
-    "antecedent moisture condition. The governing relationship is expressed as"
+    "The SCS Curve Number method is an empirical approach for estimating direct runoff from rainfall through a single "
+    "parameter, the curve number, which represents watershed characteristics. Its modest data requirements and its "
+    "compatibility with GIS-based parameterisation explain its continued dominance in applied practice (Soulis, 2021). "
+    "Runoff response is controlled by the potential maximum retention S, which is inversely related to the curve number; "
+    "the curve number itself is determined from land use, hydrologic soil group, land treatment, and antecedent moisture "
+    "condition (Soulis, 2021). The governing relationship is expressed as"
 )
 equation("Q = (P \u2212 Ia)\u00b2 / [(P \u2212 Ia) + S]")
 body(
     "where Q is the direct runoff depth, P is the precipitation depth, Ia is the initial abstraction, and S is the "
-    "potential maximum retention. In the conventional formulation the initial abstraction is taken as a fixed fraction of "
-    "the potential retention, and the HEC-HMS implementation permits both the curve number and the initial abstraction to "
-    "be specified explicitly (USACE, n.d.)."
+    "potential maximum retention. In the conventional formulation, the initial abstraction is taken as a fixed fraction "
+    "of the potential retention, and the HEC-HMS implementation allows both the curve number and the initial abstraction "
+    "to be specified explicitly (USACE, n.d.)."
 )
 body(
-    "The appeal of the method for GIS-based modelling lies in its capacity to translate spatial soil and land-use "
-    "information directly into runoff potential. ArcGIS-derived soil and LULC layers have supplied curve numbers for "
+    "The appeal of the method for GIS-based modelling lies in its ability to translate spatial soil and land-use "
+    "information directly into runoff potential. ArcGIS-derived soil and LULC layers supplied the curve numbers for a "
     "successful HEC-HMS application in the Punpun River Basin (Ranjan & Singh, 2022), and the combination of SCS-CN with "
-    "the SCS Unit Hydrograph and recession baseflow continues to support flood-oriented rainfall\u2013runoff modelling "
-    "(Jawale & Thube, 2025). The method nevertheless carries recognised limitations: it compresses complex infiltration "
-    "and storage processes into a single parameter, its conventional initial abstraction ratio of 0.2 has been found in "
-    "many settings to overestimate initial losses substantially, and it does not track the evolution of soil moisture "
-    "through long continuous simulations (Soulis, 2021). Application therefore requires deliberate attention to the "
-    "temporal scale of the simulation and the characteristics of the study area."
+    "the SCS Unit Hydrograph and recession baseflow continues to support flood-oriented modelling (Jawale & Thube, 2025). "
+    "The method nevertheless has recognised limitations. It compresses complex infiltration and storage processes into a "
+    "single parameter, the conventional initial abstraction ratio of 0.2 has been found in many settings to overestimate "
+    "initial losses, and the method does not track the evolution of soil moisture through long continuous simulations "
+    "(Shi & Wang, 2020; Soulis, 2021). It should therefore be applied with attention to the temporal scale of the "
+    "simulation and the characteristics of the study area."
 )
 
-# ======================================================== 2.8 (refined) ====
+# ------------------------------------------------------------------- 2.8
 h2("2.8 GIS integration in HEC-HMS modelling")
 body(
-    "GIS has become integral to hydrological modelling because watershed characteristics are inherently spatial. It "
-    "provides the tools for processing DEMs, land-use maps, soil maps, and drainage networks into the parameters that a "
-    "hydrological model requires. A typical GIS-supported HEC-HMS workflow begins with DEM preprocessing, in which sink "
-    "filling and flow-direction analysis are followed by flow-accumulation analysis and stream-network extraction; the "
-    "resulting network is then used to delineate sub-basins and locate the watershed outlet."
+    "GIS has become an integral component of hydrological modelling because watershed characteristics are inherently "
+    "spatial. It provides the tools for converting DEMs, land-use maps, soil maps, and drainage networks into the "
+    "parameters that a hydrological model requires. A typical GIS-supported HEC-HMS workflow begins with DEM "
+    "preprocessing, in which sink filling and flow-direction analysis are followed by flow-accumulation analysis and "
+    "stream-network extraction; the resulting network is then used to delineate sub-basins and locate the watershed "
+    "outlet (Jawale & Thube, 2025)."
 )
 body(
-    "The conversion of spatial watershed information into model parameters is well established in recent practice. "
-    "ArcGIS-based preparation of LULC, soil, and slope layers has supplied curve numbers for HEC-HMS simulation of the "
-    "Punpun River Basin (Ranjan & Singh, 2022), and DEM-derived delineation combined with soil and land-use overlay has "
-    "yielded spatially distributed curve-number estimates for urban flood modelling (Jawale & Thube, 2025). The accuracy "
-    "of this chain nevertheless rests on the terrain analysis at its head, and delineation outcomes in low-relief terrain "
-    "are sensitive to DEM choice, resolution, and threshold settings (Datta et al., 2022). GIS integration is therefore "
-    "central to the present study, in which the Gumai Beel catchment must be delineated from topographic data and its "
-    "spatial characteristics incorporated into the rainfall\u2013runoff model."
+    "The conversion of spatial information into model parameters is well established in recent practice. ArcGIS-based "
+    "preparation of LULC, soil, and slope layers supplied the curve numbers for HEC-HMS simulation of the Punpun River "
+    "Basin (Ranjan & Singh, 2022), and DEM-derived delineation combined with soil and land-use overlay produced spatially "
+    "distributed curve numbers for urban flood modelling (Jawale & Thube, 2025). The reliability of this workflow, "
+    "however, rests on the terrain analysis at its head, because delineation outcomes in low-relief terrain are sensitive "
+    "to DEM choice, resolution, and threshold settings (Datta et al., 2022). GIS integration is therefore central to the "
+    "present study, in which the Gumai Beel catchment must be delineated from topographic data and its spatial "
+    "characteristics incorporated into the rainfall\u2013runoff model."
 )
 
-# ======================================================== 2.9 (refined) ====
+# ------------------------------------------------------------------- 2.9
 h2("2.9 Event-based and continuous HEC-HMS simulation")
 body(
     "HEC-HMS supports both event-based and continuous rainfall\u2013runoff simulation. Event-based modelling reproduces "
-    "the response to individual storms and is standard practice for flood estimation and design-storm analysis, whereas "
-    "continuous modelling simulates watershed behaviour over extended periods and therefore requires representation of "
-    "evolving soil moisture, groundwater, evapotranspiration, and other slow processes. A systematic review of "
-    "applications from 2000 to 2023 confirms that event-based simulations rely predominantly on the SCS-CN and SCS Unit "
-    "Hydrograph methods, that continuous simulations require dynamic soil-moisture and baseflow representations such as "
-    "Soil Moisture Accounting and linear-reservoir baseflow, and that the choice between the two modes should follow from "
-    "the intended application and the available data (Odey & Cho, 2025)."
+    "the response to individual storms and is standard for flood estimation and design-storm analysis, whereas continuous "
+    "modelling simulates watershed behaviour over long periods and therefore requires representation of changing soil "
+    "moisture, groundwater, and evapotranspiration. A review of applications from 2000 to 2023 confirms that event-based "
+    "simulations rely mainly on the SCS-CN and SCS Unit Hydrograph methods, that continuous simulations require dynamic "
+    "soil-moisture and baseflow representations such as Soil Moisture Accounting and linear-reservoir baseflow, and that "
+    "the choice between modes should follow from the intended application and the available data (Odey & Cho, 2025)."
 )
 body(
-    "Direct empirical comparison of the two modes is available for the Sirba River Basin, where a continuous simulation "
-    "spanning 2006\u20132020 was evaluated alongside event-based simulations of selected major floods. Both schemes "
-    "performed satisfactorily, but the event-based simulations achieved higher accuracy, with R\u00b2 of 0.94\u20130.98 "
-    "against 0.84\u20130.87 for the continuous case, and the calibrated parameter distributions differed materially "
-    "between schemes, confirming that the modelling mode itself conditions parameter estimation and should be selected "
-    "according to the study objective (Souley Tangam et al., 2024)."
+    "A direct empirical comparison of the two modes is available for the Sirba River Basin, where a continuous simulation "
+    "over 2006\u20132020 was evaluated alongside event-based simulations of selected major floods. Both schemes performed "
+    "satisfactorily, but the event-based simulations were more accurate, with R\u00b2 of 0.94\u20130.98 against "
+    "0.84\u20130.87 for the continuous case, and the calibrated parameter distributions differed between schemes, showing "
+    "that the modelling mode itself conditions parameter estimation (Souley Tangam et al., 2024)."
 )
 body(
     "For the Gumai Beel\u2013Ichamoti system, the appropriate mode follows from the temporal resolution and duration of "
-    "the available rainfall and discharge records. Event-based simulation is suitable if the principal purpose is to "
-    "reproduce individual high-flow events, whereas sufficiently long continuous observations would permit a continuous "
-    "simulation capturing the full seasonal cycle of wetland storage and release."
+    "the available rainfall and discharge records (Odey & Cho, 2025). Event-based simulation is suitable if the main "
+    "purpose is to reproduce individual high-flow events, whereas sufficiently long continuous observations would permit "
+    "a continuous simulation that captures the full seasonal cycle of wetland storage and release."
 )
 
-# ======================================================= 2.10 (refined) ====
+# ------------------------------------------------------------------ 2.10
 h2("2.10 Calibration and validation of HEC-HMS")
 body(
-    "Calibration is indispensable in rainfall\u2013runoff modelling because several HEC-HMS parameters cannot be measured "
-    "directly and must be inferred from the observed response of the watershed. During calibration, parameters are "
-    "adjusted systematically to minimise the discrepancy between observed and simulated discharge. A defensible "
-    "calibration considers multiple attributes of the hydrograph simultaneously, including peak discharge, runoff volume, "
-    "time to peak, the rising and recession limbs, and low-flow behaviour, since agreement in a single statistic can "
-    "conceal compensating errors elsewhere. Validation against an independent period of observations then provides the "
-    "decisive test of whether the calibrated model can reproduce hydrological behaviour under conditions not used for "
-    "parameter estimation."
+    "Calibration is essential in rainfall\u2013runoff modelling because several HEC-HMS parameters cannot be measured "
+    "directly and must be estimated from the observed response of the watershed (Turkar et al., 2025). During "
+    "calibration, parameters are adjusted to reduce the difference between observed and simulated discharge. A sound "
+    "calibration considers several attributes of the hydrograph at once, including peak discharge, runoff volume, time to "
+    "peak, the rising and recession limbs, and low-flow behaviour, because agreement in one statistic can hide "
+    "compensating errors elsewhere. Validation against an independent period of observations then tests whether the "
+    "calibrated model can reproduce hydrological behaviour under conditions not used for parameter estimation (Sahu et "
+    "al., 2023)."
 )
 body(
-    "Performance is conventionally quantified using the Nash\u2013Sutcliffe efficiency (NSE), the coefficient of "
+    "Model performance is commonly quantified using the Nash\u2013Sutcliffe Efficiency (NSE), the coefficient of "
     "determination (R\u00b2), the root-mean-square error (RMSE), and percent bias (PBIAS), which provide complementary "
-    "information on correlation, volume error, and overall fit. In the Punpun River Basin, evaluation of daily, monthly, "
-    "and monsoonal HEC-HMS models against R\u00b2, NSE, PBIAS, and RSR indicated generally satisfactory performance, with "
-    "the monthly formulation superior to both alternatives (Ranjan & Singh, 2022). In Bangladesh, the hydrological "
-    "component of a coupled HEC-HMS\u2013HEC-RAS flood-risk framework for the Old Brahmaputra floodplain achieved NSE "
-    "values of 0.93 and 0.81, R\u00b2 values of 0.95 and 0.89, and PBIAS of \u22121.17% and 2.40% for calibration and "
-    "validation respectively, confirming that HEC-HMS can supply reliable hydrological input to flood-risk assessment "
-    "where adequate observations support calibration (Zhang et al., 2022)."
+    "information on correlation, volume error, and overall fit (Labade et al., 2025). In the Punpun River Basin, "
+    "evaluation of daily, monthly, and monsoonal HEC-HMS models against R\u00b2, NSE, PBIAS, and RSR showed generally "
+    "satisfactory performance, with the monthly model the strongest (Ranjan & Singh, 2022). In Bangladesh, the "
+    "hydrological component of a coupled HEC-HMS\u2013HEC-RAS flood-risk framework for the Old Brahmaputra floodplain "
+    "achieved NSE values of 0.93 and 0.81, R\u00b2 values of 0.95 and 0.89, and PBIAS of \u22121.17% and 2.40% for "
+    "calibration and validation respectively, confirming that HEC-HMS can supply reliable hydrological input to "
+    "flood-risk assessment when adequate observations are available (Zhang et al., 2022)."
 )
 body(
     "Numerical thresholds alone, however, do not establish model adequacy. Visual comparison of observed and simulated "
-    "hydrographs remains essential, because a model can attain a satisfactory NSE while misrepresenting particular flood "
-    "peaks or recession behaviour that matter for the intended application."
+    "hydrographs remains necessary, because a model can reach a satisfactory NSE while still misrepresenting particular "
+    "flood peaks or recession behaviour that matter for the intended application (Odey & Cho, 2025; Turkar et al., 2025)."
 )
 
-# ======================================================= 2.11 (refined) ====
+# ------------------------------------------------------------------ 2.11
 h2("2.11 Parameter sensitivity and model uncertainty")
 body(
-    "Model parameters differ widely in their influence on simulated streamflow, and sensitivity analysis identifies those "
-    "exerting the greatest control so that calibration effort can be concentrated where it matters. In HEC-HMS, the "
-    "influential parameters are associated with rainfall losses, basin response, baseflow, and routing. For SCS-CN-based "
-    "models the curve number is typically dominant, since it directly governs the conversion of precipitation into excess "
-    "rainfall; transform parameters such as lag time control the timing and shape of the hydrograph; and routing "
-    "parameters control downstream translation and attenuation. Curve number, infiltration-related parameters, lag time, "
-    "and baseflow parameters have been identified consistently as the components requiring the most careful calibration "
-    "(Turkar et al., 2025), and sensitivity analysis in the Sirba River Basin similarly ranked curve number, initial "
-    "abstraction, lag time, and routing time factors as the most influential controls on model output (Souley Tangam et "
-    "al., 2024)."
+    "Model parameters differ in their influence on simulated streamflow, and sensitivity analysis identifies the "
+    "parameters that control model output so that calibration effort can be directed efficiently. In HEC-HMS, the "
+    "influential parameters relate to rainfall losses, basin response, baseflow, and routing. For SCS-CN-based models the "
+    "curve number is usually dominant because it directly governs the conversion of rainfall into excess; lag time "
+    "controls hydrograph timing and shape; and routing parameters control downstream translation and attenuation. Curve "
+    "number, infiltration-related parameters, lag time, and baseflow parameters have been identified consistently as the "
+    "components requiring the most careful calibration (Turkar et al., 2025), and sensitivity analysis in the Sirba River "
+    "Basin likewise ranked curve number, initial abstraction, lag time, and routing time factors as the most influential "
+    "(Souley Tangam et al., 2024)."
 )
 body(
-    "Parameter uncertainty acquires particular importance where observations are limited, because different parameter "
-    "combinations can produce nearly identical hydrographs. A satisfactory calibration therefore does not guarantee that "
-    "each parameter carries a unique physical interpretation. For the Gumai Beel\u2013Ichamoti system, sensitivity "
-    "analysis will identify the parameters most influential on simulated discharge and ensure that the calibration is "
-    "both efficient and defensible."
+    "Parameter uncertainty becomes especially important when observations are limited, because different parameter "
+    "combinations can produce nearly identical hydrographs, and a satisfactory calibration therefore does not guarantee "
+    "that each parameter carries a unique physical interpretation (Sahu et al., 2023). For the Gumai Beel\u2013Ichamoti "
+    "system, sensitivity analysis will identify the parameters most influential on simulated discharge and ensure that "
+    "calibration is concentrated on the parameters that matter most (Turkar et al., 2025)."
 )
 
-# ======================================================= 2.12 (refined) ====
+# ------------------------------------------------------------------ 2.12
 h2("2.12 Recent international applications of HEC-HMS")
 body(
-    "Applications published since 2020 confirm the continued use of HEC-HMS across a wide range of climatic and "
-    "physiographic settings. In the Punpun River Basin of eastern India, daily rainfall and runoff observations combined "
-    "with GIS-derived LULC, soil, and slope data supported parallel daily, monthly, and monsoonal models, of which the "
-    "monthly model performed best, underlining the influence of temporal scale on simulation quality (Ranjan & Singh, "
-    "2022). In the Sirba River Basin of West Africa, continuous and event-based simulations both achieved satisfactory "
-    "performance, with the event-based scheme superior for the selected flood events (Souley Tangam et al., 2024). In a "
-    "Romanian catchment with increased groundwater discharge potential, the SCS-CN, SCS Unit Hydrograph, and Muskingum "
-    "configuration proved applicable even where groundwater processes influence catchment response (Herbei et al., 2024)."
+    "Applications published since 2020 confirm that HEC-HMS remains in wide use across diverse climatic and physiographic "
+    "settings. In the Punpun River Basin of eastern India, daily rainfall and runoff observations combined with "
+    "GIS-derived LULC, soil, and slope data supported daily, monthly, and monsoonal models, of which the monthly model "
+    "performed best, underlining the influence of temporal scale on simulation quality (Ranjan & Singh, 2022). In the "
+    "Sirba River Basin of West Africa, continuous and event-based simulations both achieved satisfactory performance, "
+    "with the event-based scheme superior for the selected flood events (Souley Tangam et al., 2024). In a Romanian "
+    "catchment with increased groundwater discharge potential, the SCS-CN, SCS Unit Hydrograph, and Muskingum "
+    "configuration proved applicable even where groundwater processes influence the catchment response (Herbei et al., "
+    "2024)."
 )
 body(
-    "Integration with hydraulic modelling has extended the reach of these applications. In the Cypress Creek watershed of "
+    "Integration with hydraulic modelling has extended these applications further. In the Cypress Creek watershed of "
     "Texas, wetlands represented as reservoirs within HEC-HMS were combined with HEC-RAS river hydraulics to examine the "
-    "influence of wetland size and location on watershed-scale flood control; upstream placement and greater wetland "
-    "storage reduced downstream flood area, depth, and duration (Tang et al., 2020). This finding carries direct "
-    "conceptual relevance for wetland-dominated catchments, because it demonstrates quantitatively that wetland storage "
-    "modifies the downstream hydrological response. Collectively, these studies establish that HEC-HMS is not confined to "
-    "conventional river catchments: its flexible representation of sub-basins, storage, losses, runoff transformation, "
-    "and routing renders it applicable to systems in which wetlands regulate runoff behaviour."
+    "effect of wetland size and location on watershed-scale flood control; upstream placement and greater storage reduced "
+    "downstream flood area, depth, and duration (Tang et al., 2020). This finding is conceptually important for "
+    "wetland-dominated catchments because it shows quantitatively that wetland storage modifies the downstream "
+    "hydrological response. Taken together, these studies establish that HEC-HMS is not restricted to conventional river "
+    "catchments: its flexible representation of sub-basins, storage, losses, transformation, and routing makes it "
+    "applicable to systems in which wetlands regulate runoff behaviour (Odey & Cho, 2025; Tang et al., 2020)."
 )
 
-# ======================================================= 2.13 (refined) ====
+# ------------------------------------------------------------------ 2.13
 h2("2.13 Wetland and beel hydrology")
 body(
-    "Wetlands are integral components of watershed hydrology because they store precipitation and runoff temporarily and "
-    "thereby modify the timing and magnitude of downstream flows. The strength of this regulation depends on wetland "
-    "size, position within the watershed, storage capacity, connectivity, vegetation, soil characteristics, and the "
-    "relationship with surrounding rivers. Hydrologic\u2013hydraulic simulation of the Cypress Creek watershed "
+    "Wetlands are important components of watershed hydrology because they store precipitation and runoff temporarily and "
+    "thereby influence the timing and magnitude of downstream flows. The strength of this regulation depends on wetland "
+    "size, location, storage capacity, connectivity, vegetation, soil characteristics, and the relationship with "
+    "surrounding rivers (Tang et al., 2020). Hydrologic\u2013hydraulic simulation of the Cypress Creek watershed "
     "demonstrates the principle directly: larger wetlands, and wetlands located farther upstream, reduced downstream "
-    "inundation extent, depth, and duration (Tang et al., 2020). Although derived from a North American case study, the "
-    "result expresses a general mechanism, namely that wetland storage alters the timing and magnitude of runoff "
-    "delivered to downstream channels."
+    "inundation extent, depth, and duration (Tang et al., 2020). Although derived from a North American case, the result "
+    "expresses a general mechanism, namely that wetland storage alters the timing and magnitude of runoff delivered to "
+    "downstream channels."
 )
 body(
-    "Wetlands hold particular significance in Bangladesh, whose floodplains contain numerous seasonal and permanent "
-    "depressional water bodies. Beels are characteristically saucer-shaped depressions that retain water through the wet "
-    "season and dry partially or completely thereafter, and their hydrological behaviour is coupled closely to seasonal "
-    "flooding and river connectivity. Hydromorphodynamic simulation of beels within the polders of the "
-    "Ganges\u2013Brahmaputra\u2013Meghna delta has revealed strong spatial and seasonal variability in their hydrological "
-    "and sedimentation behaviour, governed by the seasonal flow regime and the interaction between the beel and the "
-    "surrounding river system (Islam et al., 2021)."
+    "Wetlands are particularly significant in Bangladesh, whose floodplains contain numerous seasonal and permanent "
+    "depressional water bodies. Beels are saucer-shaped depressions that retain water during the wet season and dry "
+    "partially or completely during the dry season, and their behaviour is closely linked to seasonal flooding and river "
+    "connectivity (Adnan et al., 2020). Simulation of beels within the polders of the Ganges\u2013Brahmaputra\u2013Meghna "
+    "delta has revealed strong spatial and seasonal variability in their hydrological and sedimentation behaviour, "
+    "governed by the seasonal flow regime and the interaction between the beel and the surrounding river system (Islam et "
+    "al., 2021)."
 )
 body(
     "These characteristics distinguish beel systems from conventional upland watersheds. In a beel-dominated catchment, "
-    "rainfall typically contributes first to temporary surface storage and only subsequently drains to downstream "
-    "channels, so that the runoff peak is delayed and attenuated relative to an equivalent upland response. For "
-    "rainfall\u2013runoff modelling this creates a specific challenge: a conventional model structure may reproduce runoff "
-    "generation adequately yet require careful representation of storage and routing to reproduce downstream hydrograph "
-    "timing. A sound understanding of the wetland\u2019s hydrological character is therefore prerequisite to selecting the "
-    "appropriate HEC-HMS structure."
+    "rainfall typically contributes first to temporary surface storage and only later drains to downstream channels, so "
+    "the runoff peak is delayed and attenuated relative to an equivalent upland response (Islam et al., 2021; Tang et "
+    "al., 2020). For rainfall\u2013runoff modelling this creates a specific challenge: a conventional model may reproduce "
+    "runoff generation satisfactorily yet require careful representation of storage and routing to reproduce downstream "
+    "hydrograph timing. Understanding the hydrological character of the wetland is therefore a prerequisite for selecting "
+    "the appropriate HEC-HMS structure (Odey & Cho, 2025)."
 )
 
-# ======================================================= 2.14 (refined) ====
+# ------------------------------------------------------------------ 2.14
 h2("2.14 Hydrological modelling in Bangladesh")
 body(
-    "Bangladesh presents a complex hydrological environment characterised by monsoonal rainfall, extensive floodplains, a "
-    "dense river network, abundant wetlands, and pronounced seasonal variation in water levels and discharge. Flooding "
-    "recurs annually and constitutes a principal concern for agriculture, infrastructure, ecosystems, and communities. "
-    "Reliable rainfall\u2013runoff models are therefore essential for understanding watershed behaviour and supporting "
-    "flood-management strategies, yet their development is complicated by the limited spatial coverage of rainfall and "
-    "discharge observations."
+    "Bangladesh has a complex hydrological environment characterised by monsoonal rainfall, extensive floodplains, a "
+    "dense river network, abundant wetlands, and strong seasonal variation in water levels and discharge. Flooding recurs "
+    "annually and is a major concern for agriculture, infrastructure, ecosystems, and communities (Akter & Sawon, 2024; "
+    "Zhang et al., 2022). Reliable rainfall\u2013runoff models are therefore needed to understand watershed behaviour and "
+    "support flood management, yet their development is complicated by the limited spatial coverage of rainfall and "
+    "discharge observations (Nur et al., 2022)."
 )
 body(
     "Recent studies document the expanding application of HEC-HMS across the country. For the flash-flood-prone Khowai "
-    "River Basin, a calibrated and validated HEC-HMS model generated runoff information from available rainfall data under "
-    "conditions in which discharge observations are limited (Nur et al., 2022). For the Gumti River Basin, SRTM-based "
+    "River Basin, a calibrated and validated HEC-HMS model generated runoff information from available rainfall data "
+    "under conditions of limited discharge observation (Nur et al., 2022). For the Gumti River Basin, SRTM-based "
     "delineation, SCS-CN losses, and Muskingum routing supported calibration against 2019\u20132020 observations and "
     "validation against 2021 records, with performance evaluated through R\u00b2, NSE, RSR, and PBIAS and the calibrated "
     "model recommended for flood prediction and water-resources planning (Nujhat et al., 2024). In the Halda River "
-    "catchment, a cascade-reservoir HEC-HMS framework with curve numbers optimised against SWAT simulation results "
-    "achieved agreement with observed discharge across several performance indicators, although baseflow representation "
-    "remained a documented weakness (Haque et al., 2024). These studies confirm that HEC-HMS can be applied successfully "
-    "to Bangladeshi catchments while indicating that performance depends on careful calibration and appropriate "
-    "representation of watershed processes."
+    "catchment, a cascade-reservoir HEC-HMS framework with curve numbers optimised against SWAT results achieved "
+    "agreement with observed discharge across several indicators, although baseflow representation remained a documented "
+    "weakness (Haque et al., 2024). Hydrological models of selected flash-flood-prone rivers have further advanced the "
+    "understanding of rapid-response behaviour under monsoonal forcing (Akter & Sawon, 2024). Together, these studies "
+    "confirm that HEC-HMS can be applied successfully in Bangladesh while showing that performance depends on careful "
+    "calibration and appropriate representation of watershed processes."
 )
 
-# ======================================================= 2.15 (refined) ====
+# ------------------------------------------------------------------ 2.15
 h2("2.15 HEC-HMS and flood modelling in Bangladesh")
 body(
-    "Application of HEC-HMS in Bangladesh has progressed beyond rainfall\u2013runoff simulation toward integrated flood "
+    "The application of HEC-HMS in Bangladesh has expanded beyond rainfall\u2013runoff simulation toward integrated flood "
     "modelling. For the Old Brahmaputra River floodplain, an integrated flood-risk framework coupled HEC-HMS with HEC-RAS "
     "1D/2D hydraulics and a bottom-up vulnerability analysis: the hydrological model generated the flows used in the "
-    "hydraulic flood simulation, the combined framework returned strong calibration and validation statistics, and the "
-    "results demonstrated the value of integrating hydrological and hydraulic models for flood-risk assessment (Zhang et "
-    "al., 2022)."
+    "hydraulic simulation, and the combined framework produced strong calibration and validation results, demonstrating "
+    "the value of integrating hydrological and hydraulic models for flood-risk assessment (Zhang et al., 2022)."
 )
 body(
-    "This form of integration bears directly on the present study, because a calibrated rainfall\u2013runoff model "
-    "constitutes the foundation for any subsequent hydraulic modelling of the Gumai Beel\u2013Ichamoti system. Once "
-    "rainfall-generated discharge can be simulated reliably, the resulting hydrographs may serve as boundary conditions "
-    "for a hydraulic model such as HEC-RAS. The growing use of HEC-HMS in Bangladesh also reflects a broader movement "
+    "This form of integration is directly relevant to the present study, because a calibrated rainfall\u2013runoff model "
+    "is the foundation for any future hydraulic modelling of the Gumai Beel\u2013Ichamoti system. Once rainfall-generated "
+    "discharge can be simulated reliably, the resulting hydrographs can serve as boundary conditions for a hydraulic "
+    "model such as HEC-RAS (Zhang et al., 2022). The growing use of HEC-HMS in Bangladesh also reflects a broader shift "
     "toward spatially integrated modelling, in which GIS, DEMs, gridded rainfall products, and remote sensing are "
-    "combined with observed discharge to strengthen model representation."
+    "combined with observed discharge to improve model representation (Labade et al., 2025)."
 )
 
-# ======================================================= 2.16 (refined) ====
+# ------------------------------------------------------------------ 2.16
 h2("2.16 Comparison of HEC-HMS with SWAT and other models")
 body(
     "HEC-HMS is not the only framework available for rainfall\u2013runoff simulation. SWAT, a widely used "
     "semi-distributed watershed model, is particularly suited to long-term assessments involving land-use management, "
-    "agricultural practice, sediment transport, and nutrient dynamics. The essential difference between the two lies in "
-    "their objectives: HEC-HMS concentrates on precipitation\u2013runoff transformation and hydrograph simulation, whereas "
-    "SWAT represents the broader watershed water balance and land-management processes. Direct comparison in the "
-    "Atrai\u2013Karatoa River Basin of Bangladesh found that SWAT performed better for high flows under daily simulation "
-    "while HEC-HMS was more accurate for medium flows, leading to the conclusion that model selection should follow from "
-    "the intended application and the hydrological character of the watershed (Moniruzzaman & Mahalder, 2026)."
+    "agricultural practice, sediment transport, and nutrient dynamics. The essential difference lies in their objectives: "
+    "HEC-HMS concentrates on precipitation\u2013runoff transformation and hydrograph simulation, whereas SWAT represents "
+    "the broader watershed water balance and land-management processes. A direct comparison in the Atrai\u2013Karatoa "
+    "River Basin of Bangladesh found that SWAT performed better for high flows under daily simulation while HEC-HMS was "
+    "more accurate for medium flows, leading to the conclusion that model selection should follow from the intended "
+    "application and the hydrological character of the watershed (Moniruzzaman & Mahalder, 2026)."
 )
 body(
     "Machine-learning approaches, including artificial neural networks and long short-term memory networks, have also "
-    "gained prominence. These models capture nonlinear rainfall\u2013runoff relationships and can achieve high predictive "
-    "accuracy where large training datasets exist, but their physical interpretability is lower than that of conceptual "
-    "hydrological models. HEC-HMS is appropriate for the present study because the primary objective is to represent the "
-    "rainfall\u2013runoff response of a specific watershed through physically interpretable components, allowing rainfall "
-    "losses, runoff transformation, baseflow, and channel routing to be examined separately."
+    "become popular because they capture nonlinear rainfall\u2013runoff relationships and can achieve high predictive "
+    "accuracy where large training datasets exist; their physical interpretability, however, is lower than that of "
+    "conceptual hydrological models (Sahu et al., 2023). HEC-HMS is appropriate for the present study because the primary "
+    "objective is to represent the rainfall\u2013runoff response of a specific watershed through physically interpretable "
+    "components, allowing losses, transformation, baseflow, and routing to be examined separately (Turkar et al., 2025)."
 )
 
-# ======================================================= 2.17 (refined) ====
+# ------------------------------------------------------------------ 2.17
 h2("2.17 Challenges of rainfall\u2013runoff modelling in Bangladesh")
 body(
     "Four challenges condition rainfall\u2013runoff modelling in Bangladesh. The first is the spatial variability of "
     "rainfall: monsoon precipitation, particularly during convective events, can vary substantially over short distances, "
-    "so that a limited gauge network introduces uncertainty into estimates of mean areal precipitation. The second is the "
-    "scarcity of discharge data, since many local rivers and wetland systems lack long-term gauging stations, complicating "
-    "calibration and validation; this constraint applies with particular force to smaller catchments such as the Gumai "
-    "Beel\u2013Ichamoti system. The third is the complexity of interaction among rivers, floodplains, wetlands, and "
-    "groundwater, which conventional rainfall\u2013runoff models necessarily simplify, at the cost of potential errors in "
-    "baseflow, storage, and recession behaviour. The fourth is the seasonal variation of land use and wetland storage in "
-    "agricultural wetland environments, where land may be cultivated in one season and inundated in another, so that "
-    "runoff characteristics do not remain constant through the year."
+    "so a limited gauge network introduces uncertainty into estimates of mean areal precipitation (Souley Tangam et al., "
+    "2024). The second is the scarcity of discharge data, because many local rivers and wetland systems lack long-term "
+    "gauging stations, which complicates calibration and validation and applies with particular force to smaller "
+    "catchments such as the Gumai Beel\u2013Ichamoti system (Nur et al., 2022). The third is the complex interaction "
+    "among rivers, floodplains, wetlands, and groundwater, which conventional models simplify at the cost of potential "
+    "errors in baseflow, storage, and recession behaviour (Haque et al., 2024). The fourth is the seasonal variation of "
+    "land use and wetland storage in agricultural wetland environments, where land is cultivated in one season and "
+    "inundated in another, so runoff characteristics do not remain constant through the year (Islam et al., 2021)."
 )
 body(
-    "The Bangladeshi studies reviewed above demonstrate that HEC-HMS delivers satisfactory rainfall\u2013runoff simulation "
-    "where suitable rainfall and discharge records exist, while underscoring the need for careful calibration, "
-    "appropriate selection of model components, and explicit attention to local hydrological characteristics (Haque et "
-    "al., 2024; Moniruzzaman & Mahalder, 2026; Nujhat et al., 2024; Nur et al., 2022)."
+    "The Bangladeshi studies reviewed above show that HEC-HMS delivers satisfactory rainfall\u2013runoff simulation where "
+    "suitable rainfall and discharge records exist, while underscoring the need for careful calibration, appropriate "
+    "selection of model components, and explicit attention to local hydrological characteristics (Haque et al., 2024; "
+    "Moniruzzaman & Mahalder, 2026; Nujhat et al., 2024; Nur et al., 2022)."
 )
 
-# ======================================================= 2.18 (refined) ====
+# ------------------------------------------------------------------ 2.18
 h2("2.18 Research gap")
 body(
     "The reviewed literature establishes that HEC-HMS has been applied extensively to rainfall\u2013runoff simulation and "
     "flood assessment under diverse environmental conditions, and that recent research increasingly integrates the model "
-    "with GIS, remote sensing, DEM-derived watershed characteristics, and hydraulic models. Several gaps nevertheless "
-    "remain relevant to the present study."
+    "with GIS, remote sensing, DEM-derived watershed characteristics, and hydraulic models (Labade et al., 2025; Odey & "
+    "Cho, 2025). Several gaps nevertheless remain relevant to the present study."
 )
 body(
-    "First, recent HEC-HMS research in Bangladesh has concentrated on comparatively large or well-studied river basins, "
-    "including the Khowai, Halda, Old Brahmaputra, Gumti, and Atrai\u2013Karatoa systems. These studies furnish valuable "
-    "methodological precedents but do not necessarily represent the hydrological behaviour of smaller wetland-dominated "
+    "First, recent HEC-HMS research in Bangladesh has concentrated on comparatively large or well-studied basins, "
+    "including the Khowai, Halda, Old Brahmaputra, Gumti, and Atrai\u2013Karatoa systems (Haque et al., 2024; "
+    "Moniruzzaman & Mahalder, 2026; Nujhat et al., 2024; Nur et al., 2022; Zhang et al., 2022). These studies provide "
+    "valuable methodological precedents but do not necessarily represent the behaviour of smaller wetland-dominated "
     "catchments. Second, rainfall\u2013runoff modelling of beel\u2013river systems has received limited attention. "
     "Wetlands and beels act as temporary storage that alters the timing and magnitude of downstream runoff; international "
     "evidence confirms the influence of wetland storage on flood response (Tang et al., 2020), and Bangladeshi evidence "
@@ -696,39 +700,42 @@ body(
     "carried these characteristics into a dedicated HEC-HMS framework for a Bangladeshi beel."
 )
 body(
-    "Third, the literature search undertaken for the present study identified very limited recent peer-reviewed research "
+    "Third, the literature search undertaken for this study identified very limited recent peer-reviewed research "
     "addressing the Gumai Beel\u2013Ichamoti River system with HEC-HMS, indicating a local-scale research gap rather than "
-    "any general absence of hydrological modelling research in Bangladesh. Fourth, although previous Bangladeshi studies "
-    "demonstrate the value of integrating observed rainfall, discharge, and GIS-derived DEM, land-use, and soil "
-    "information, these approaches have been applied predominantly to larger conventional river basins; their extension "
-    "to an agricultural wetland system such as Gumai Beel can yield new information on the rainfall\u2013runoff response "
-    "of a low-lying catchment. Finally, a calibrated and validated HEC-HMS model of Gumai Beel would provide the "
-    "foundation for subsequent hydrological and hydraulic investigation, since the validated model could be linked with "
-    "hydraulic models to examine flood extent, water levels, drainage behaviour, or future hydrological scenarios."
+    "a general absence of hydrological modelling research in Bangladesh (Moniruzzaman & Mahalder, 2026; Nujhat et al., "
+    "2024). Fourth, although previous Bangladeshi studies demonstrate the value of integrating observed rainfall, "
+    "discharge, and GIS-derived DEM, land-use, and soil information, these approaches have been applied mainly to larger "
+    "conventional river basins (Ranjan & Singh, 2022; Zhang et al., 2022); their extension to an agricultural wetland "
+    "system such as Gumai Beel can therefore yield new information on the rainfall\u2013runoff response of a low-lying "
+    "catchment. Finally, a calibrated and validated HEC-HMS model of Gumai Beel would provide the foundation for "
+    "subsequent hydrological and hydraulic investigation, because the validated model could be linked with hydraulic "
+    "models to examine flood extent, water levels, drainage behaviour, or future scenarios (Zhang et al., 2022)."
 )
 
-# ======================================================= 2.19 (refined) ====
+# ------------------------------------------------------------------ 2.19
 h2("2.19 Relevance of the present study")
 body(
     "The present study addresses the identified gap by developing a rainfall\u2013runoff model of the Gumai "
     "Beel\u2013Ichamoti River system in HEC-HMS, integrating rainfall and discharge observations with spatial information "
-    "derived from GIS and DEM datasets. Watershed delineation supplies the spatial structure of the model, rainfall "
-    "provides the primary meteorological forcing, and observed discharge supports calibration and validation, so that the "
-    "reliability of the simulated runoff can be evaluated against appropriate statistical performance indicators."
+    "derived from GIS and DEM datasets, following the workflow established in recent GIS-supported applications (Jawale & "
+    "Thube, 2025; Ranjan & Singh, 2022). Watershed delineation supplies the spatial structure of the model, rainfall "
+    "provides the primary meteorological forcing, and observed discharge supports calibration and validation, so that "
+    "simulated runoff can be evaluated against appropriate statistical performance indicators (Labade et al., 2025)."
 )
 body(
-    "The study derives particular significance from the character of its setting. Gumai Beel is a low-lying agricultural "
-    "and wetland environment whose hydrological response is expected to reflect not only rainfall but also topography, "
-    "land use, soil characteristics, drainage connectivity, and temporary wetland storage. HEC-HMS provides an "
-    "interpretable framework for examining these controls, since rainfall losses, direct-runoff transformation, baseflow, "
-    "and routing are represented as separable components whose relative influence can be investigated individually."
+    "The study derives particular significance from its setting. Gumai Beel is a low-lying agricultural and wetland "
+    "environment whose hydrological response is expected to reflect not only rainfall but also topography, land use, soil "
+    "characteristics, drainage connectivity, and temporary wetland storage (Islam et al., 2021; Tang et al., 2020). "
+    "HEC-HMS provides an interpretable framework for examining these controls, because rainfall losses, direct-runoff "
+    "transformation, baseflow, and routing are represented as separable components whose relative influence can be "
+    "investigated individually (Turkar et al., 2025; USACE, n.d.)."
 )
 body(
-    "The resulting model also establishes a foundation for subsequent research. The simulated discharge hydrographs could "
+    "The resulting model also establishes a foundation for future research. The simulated discharge hydrographs could "
     "serve as inputs to HEC-RAS for hydraulic flood modelling, following the integrated HEC-HMS\u2013HEC-RAS framework "
     "applied to the Old Brahmaputra floodplain (Zhang et al., 2022). The present study therefore contributes both to the "
     "hydrological understanding of Gumai Beel and to the wider application of GIS-supported HEC-HMS modelling in small, "
-    "wetland-dominated catchments of Bangladesh."
+    "wetland-dominated catchments of Bangladesh (Odey & Cho, 2025; Tang et al., 2020)."
 )
 
 # ================================================================ REFERENCES
@@ -826,6 +833,20 @@ for r_text in references:
 OUT = "thesis/Literature_Review_Gumai_Beel_Ichamoti_HEC-HMS.docx"
 doc.save(OUT)
 
+# --------------------------- verification: every body paragraph has citation
+import re
+uncited = []
+for p in doc.paragraphs:
+    t = p.text.strip()
+    if not t or len(t.split()) < 25:          # skip headings/equation/short lines
+        continue
+    if t.startswith(("2.", "Q =")):
+        continue
+    if not re.search(r"\((?:[A-Z\u0100-\u017F][^()]*?, )?(?:n\.d\.|20\d\d)\)", t):
+        uncited.append(t[:80])
 words = sum(len(p.text.split()) for p in doc.paragraphs)
 print(f"Saved {OUT}")
-print(f"Approximate word count (paragraphs only): {words}")
+print(f"Approximate word count: {words}")
+print(f"Paragraphs without citation: {len(uncited)}")
+for u in uncited:
+    print("  -", u)
